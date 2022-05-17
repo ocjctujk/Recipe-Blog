@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recipes</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"> </ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="primary" (click)="onAddRecipe()">Add Recipe</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="10" offset-md="1" class="ion-no-margin ion-no-padding">
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              *ngFor="let recipe of recipes"
+              size="12"
+              size-md="4"
+              class=""
+            >
+              <ion-card button="true" (click)="onOpenRecipe(recipe.id)">
+                <ion-card-header class="ion-no-padding">
+                  <ion-img [src]="recipe.imageUrl"> </ion-img>
+                  <ion-item lines="none">
+                    <ion-card-title>{{recipe.name}}</ion-card-title>
+                  </ion-item>
+                </ion-card-header>
+                <ion-card-content class="ion-no-padding">
+                  <ion-item>
+                    <ion-text> {{recipe.description}} </ion-text>
+                  </ion-item>
+                  <ion-item>
+                    <ion-button size="medium">Read More</ion-button>
+                    <ion-label slot="end"
+                      >Duration : {{recipe.duration}} mins</ion-label
+                    >
+                  </ion-item>
+                  <ion-item>
+                    <span [ngClass]="{'checked': recipe.rating>=1}" class="fa fa-star star"></span>
+                    <span [ngClass]="{'checked': recipe.rating>=2}" class="fa fa-star star"></span>
+                    <span [ngClass]="{'checked': recipe.rating>=3}" class="fa fa-star star"></span>
+                    <span [ngClass]="{'checked': recipe.rating>=4}" class="fa fa-star star"></span>
+                    <span [ngClass]="{'checked': recipe.rating==5}" class="fa fa-star star"></span>
+                  </ion-item>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

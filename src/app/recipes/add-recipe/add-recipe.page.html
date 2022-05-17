@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Recipe</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onClose()">
+        close
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="form">
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input
+              formControlName="name"
+              type="text"
+              placeholder="type recipe name"
+          
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-input
+              formControlName="description"
+              type="text"
+              placeholder="type description"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Image URL</ion-label>
+            <ion-input
+              formControlName="imageUrl"
+              type="text"
+              placeholder="paste image url"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Duration(mins)</ion-label>
+            <ion-input
+              type="number"
+              formControlName="duration"
+              placeholder="type duration in mins"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Rating(1-5)</ion-label>
+            <ion-input
+              formControlName="rating"
+              type="number"
+              placeholder="type rating"
+            ></ion-input>
+          </ion-item>
+          <ion-button
+            class="ion-margin"
+            type="submit"
+            (click)="onSubmit()"
+            [disabled]="!form.valid"
+            >Submit</ion-button
+          >
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
