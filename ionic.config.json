@@ -1,0 +1,7 @@
+{
+  "name": "Recipe Blog",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
